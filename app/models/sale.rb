@@ -1,6 +1,6 @@
 class Sale < ApplicationRecord
   # model association
-  has_and_belongs_to_many :products
+  has_many :products, through: :sales_detail
   belongs_to :cash_register
 
   # validations

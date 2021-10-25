@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy!
+    @product.destroy
     json_response({"message" => "deleted"}, :ok)
   end
 

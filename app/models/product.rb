@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   # model association
-  has_and_belongs_to_many :sales
+  has_many :sales, through: :sales_detail
   belongs_to :category
 
   # validations

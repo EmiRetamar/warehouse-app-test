@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    @category.destroy!
+    @category.destroy
     json_response({"message" => "deleted"}, :ok)
   end
 
