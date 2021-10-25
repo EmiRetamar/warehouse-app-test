@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 2021_10_25_005230) do
     t.integer "stock"
     t.integer "stock_min"
     t.string "description"
-    t.integer "category_id_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id_id"], name: "index_products_on_category_id_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "sales", force: :cascade do |t|
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 2021_10_25_005230) do
     t.float "total"
     t.boolean "registered", default: true
     t.boolean "paid"
-    t.integer "cash_register_id_id", null: false
+    t.integer "cash_register_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cash_register_id_id"], name: "index_sales_on_cash_register_id_id"
+    t.index ["cash_register_id"], name: "index_sales_on_cash_register_id"
   end
 
   create_table "sales_details", force: :cascade do |t|
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 2021_10_25_005230) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "products", "category_ids"
-  add_foreign_key "sales", "cash_register_ids"
+  add_foreign_key "products", "categories"
+  add_foreign_key "sales", "cash_registers"
   add_foreign_key "sales_details", "products"
   add_foreign_key "sales_details", "sales"
 end

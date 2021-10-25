@@ -9,7 +9,7 @@ class CreateSales < ActiveRecord::Migration[6.1]
       t.float :total
       t.boolean :registered, default: true
       t.boolean :paid, null: true
-      t.references :cash_register_id, null: false, foreign_key: true
+      t.references :cash_register, null: false, foreign_key: true
 
       t.timestamps
     end
