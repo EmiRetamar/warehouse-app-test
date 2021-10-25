@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
   get 'ping', to: 'ping#index'
 
+  resources :categories
+  resources :products
+
   post 'signin', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
 end
